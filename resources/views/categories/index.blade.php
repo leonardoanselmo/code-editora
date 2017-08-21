@@ -30,7 +30,7 @@
                             <li>
                                 <?php $deleteForm = "delete-form-{$loop->index}"; ?>
                                 <a href="{{ route('categories.destroy', ['category' => $category->id])}}"
-                                    onclik="event.preventDefault();document.getElementById('{{ $deleteForm }}').submit();">Excluir</a>
+                                    onclick="event.preventDefault();document.getElementById('{{ $deleteForm }}').submit();">Excluir</a>
                                 {!! Form::open(['route' => [
                                     'categories.destroy', 'category' => $category->id
                                     ], 'method' => 'DELETE', 'id' => $deleteForm, 'style' => 'display:none' ]) !!}                                    
