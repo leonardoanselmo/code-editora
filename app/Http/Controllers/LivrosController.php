@@ -14,7 +14,7 @@ class LivrosController extends Controller
      */
     public function index()
     {
-        $livros = Livros::all();
+        $livros = Livros::query()->paginate(10);        
         return view('livros.index', compact('livros'));
     }
 
@@ -25,7 +25,7 @@ class LivrosController extends Controller
      */
     public function create()
     {
-        //
+        return view('livros.create');        
     }
 
     /**
@@ -36,7 +36,8 @@ class LivrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Livros::create($request->all());
+        return redirect()->route('livros.index');
     }
 
     /**
@@ -56,9 +57,9 @@ class LivrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Livros $livro)
     {
-        //
+        return view('livros.edit', compact('livro'));
     }
 
     /**
@@ -68,9 +69,12 @@ class LivrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Livros $livro)
     {
-        //
+        $livro->fill($request->all());
+        $livro->save();
+
+        return redirect()->route('livros.index');
     }
 
     /**
@@ -79,8 +83,10 @@ class LivrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Livros $livro)
     {
-        //
+        $livro->delete();
+        return redirect()->route('livros.index');
     }
+
 }

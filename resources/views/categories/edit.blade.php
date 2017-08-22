@@ -8,7 +8,7 @@
             {!! Form::model($category, [
                 'route' => ['categories.update', 'category' => $category->id 
                 ], 'class' => 'form', 'method' => 'PUT' ]) !!}
-
+                
             <div class="form-group">
                 {!! Form::label('name', 'Nome') !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}

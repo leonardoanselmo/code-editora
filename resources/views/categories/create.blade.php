@@ -13,7 +13,7 @@
             </div>  
 
             <div class="form-group">
-                {!! Form::submit('Criar categoria', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Salvar categoria', ['class' => 'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

@@ -28,11 +28,17 @@
                     <td>
                         <ul class="list-inline">
                             <li>
-                                <a href="">Editar</a>
+                                <a href="{{ route('livros.edit', ['livros' => $livro->id])}}">Editar</a>
                             </li>
                             <li>|</li>
                             <li>
-                                <a href="">Excluir</a>
+                                <?php $deleteForm = "delete-form-{$loop->index}"; ?>
+                                <a href="{{ route('livros.destroy', ['livros' => $livro->id])}}"
+                                    onclick="event.preventDefault();document.getElementById('{{ $deleteForm }}').submit();">Excluir</a>
+                                {!! Form::open(['route' => [
+                                    'livros.destroy', 'livros' => $livro->id
+                                    ], 'method' => 'DELETE', 'id' => $deleteForm, 'style' => 'display:none' ]) !!}                                    
+                                {!! Form::close() !!}
                             </li>
                         </ul>
                     </td>
@@ -41,7 +47,7 @@
             </tbody>
         </table>
 
-       
+        {{ $livros->links() }}
     </div>
 </div>
 @endsection
