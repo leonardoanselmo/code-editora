@@ -23,8 +23,29 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
+        $category = $this->route('category');
+        $id = $category ? $category->id:NULL;
+        
         return [
-            'name' => 'required'
+            'name' => "required|max:255|unique:categories,name,$id"
         ];
     }
+
+    /*
+    public function messages()
+    {
+        return [
+            'required' => 'O :attribute é obrigatório.',
+            'unique' => 'O :attribute digitado está em uso.'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nome',
+        ];
+    }
+    */
+
 }
