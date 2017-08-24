@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         {!! 
-            Table::withContents($categories->items())->striped()
+            Table::withContents($categories->items())->striped()->hover()->condensed()
             ->callback('Ações', function($field, $category){
                 $linkEdit = route('categories.edit', ['category' => $category->id]);
                 $linkDestroy = route('categories.destroy', ['category' => $category->id]);                
