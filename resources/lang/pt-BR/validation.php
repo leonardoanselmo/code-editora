@@ -144,6 +144,8 @@ return [
         'subject'               => 'assunto',
         'time'                  => 'hora',
         'title'                 => 'título',
+        'subtitle'              => 'sub-titulo',
+        'price'                 => 'preço',
         'username'              => 'usuário',
         'year'                  => 'ano',
     ],
