@@ -17,5 +17,5 @@
 {!! Html::closeFormGroup() !!}              
 
 {!! Html::openFormGroup() !!}
-    {!! Form::submit('Salvar livro', ['class' => 'btn btn-primary']) !!}
+    {!! Button::primary('Salvar livro')->submit() !!}    
 {!! Html::closeFormGroup() !!}

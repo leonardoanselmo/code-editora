@@ -5,5 +5,5 @@
 {!! Html::closeFormGroup() !!} 
 
 {!! Html::openFormGroup() !!}
-    {!! Form::submit('Salvar categoria', ['class' => 'btn btn-primary']) !!}
+    {!! Button::primary('Salvar categoria')->submit() !!}    
 {!! Html::closeFormGroup() !!}
