@@ -10,8 +10,13 @@ class Livros extends Model implements TableInterface
     protected $fillable = [
         'title',
         'subtitle',
-        'price'
+        'price',
+        'users_id'
     ];
+
+    public function livros_users(){
+        return $this->belongsTo('App\User');
+    }
 
     public function getTableHeaders()
     {
