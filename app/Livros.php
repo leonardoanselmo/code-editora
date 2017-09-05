@@ -14,7 +14,7 @@ class Livros extends Model implements TableInterface
         'users_id'
     ];
 
-    public function livros_users(){
+    public function livrosUsuarios(){
         return $this->belongsTo('App\User');
     }
 

@@ -38,6 +38,7 @@ class LivrosController extends Controller
      */
     public function store(LivroRequest $request)
     {
+        $request = User::usuariosLivros()->id;
         Livros::create($request->all());
         return redirect()->route('livros.index');
     }

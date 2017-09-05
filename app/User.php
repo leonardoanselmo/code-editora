@@ -18,7 +18,7 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    public function users_livros()
+    public function usuariosLivros()
     {
         return $this->hasMany('App\Livros');
     }
