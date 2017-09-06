@@ -11,7 +11,7 @@ class Livros extends Model implements TableInterface
         'title',
         'subtitle',
         'price',
-        'users_id'
+        'user_id'
     ];
 
     public function livrosUsuarios(){
