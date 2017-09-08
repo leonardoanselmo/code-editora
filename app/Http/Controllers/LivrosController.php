@@ -38,8 +38,9 @@ class LivrosController extends Controller
      */
     public function store(LivroRequest $request)
     {
-        $request = User::usuariosLivros()->id;
-        Livros::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = \Auth::user()->id;
+        Livros::create($data);
         return redirect()->route('livros.index');
     }
 
@@ -74,6 +75,7 @@ class LivrosController extends Controller
      */
     public function update(LivroRequest $request, Livros $livro)
     {
+        $data = $request->except(['user_id']);
         $livro->fill($request->all());
         $livro->save();
 
