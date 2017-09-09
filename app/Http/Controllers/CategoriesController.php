@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category as Category;
+use App\Models\Category; // as Category;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 
 class CategoriesController extends Controller
 {
+
+    private $repository;
+
+    public function __construct(CategoryRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +25,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        // $categories = $this->repository->paginate(10);
         $categories = Category::query()->paginate(10);
         return view('categories.index', compact('categories'));
     }
