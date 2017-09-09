@@ -13,7 +13,7 @@ class Category extends Model implements TableInterface
 
     public function getTableHeaders()
     {
-        return ['ID', 'Categoria'];
+        return ['ID', 'Categoria'];        
     }
 
     public function getValueForHeader($header)
