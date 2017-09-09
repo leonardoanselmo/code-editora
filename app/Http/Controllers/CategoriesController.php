@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Category as Category;
+use App\Models\Category as Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 
@@ -63,7 +63,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {        
-        return view('categories.edit', compact('category'));
+        return view('categories.edit', compact('App\Models\Category'));
     }
 
     /**
