@@ -26,7 +26,6 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = $this->repository->paginate(10);
-        // $categories = Category::query()->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -72,7 +71,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(CategoryRepository $category)
     {        
         return view('categories.edit', compact('App\Models\Category'));
     }

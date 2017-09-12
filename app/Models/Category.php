@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Bootstrapper\Interfaces\TableInterface;
 
 
-class Category extends Model implements Transformable
+class Category extends Model implements Transformable, TableInterface
 {
 
     use TransformableTrait;
