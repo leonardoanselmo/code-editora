@@ -11,6 +11,7 @@ class CategoriesController extends Controller
 {
 
     private $repository;
+    private $category;
 
     public function __construct(CategoryRepository $repository)
     {
@@ -47,7 +48,7 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create($request->all());
+        $this->repository->create($request->all());
         $url = $request->get('redirect_to', route('categories.index'));
         $request->session()->flash('message', 'Categoria cadastrada com sucesso.');
         return redirect()->to($url);
@@ -71,9 +72,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryRepository $category)
-    {        
-        return view('categories.edit', compact('App\Models\Category'));
+    public function edit($id)
+    {
+        $category = $this->repository->find($id);
+        return view('categories.edit', compact('category'));
     }
 
     /**
