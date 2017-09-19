@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CodePub\Http\Controllers;
 
-use App\Models\Category; // as Category;
-use App\Repositories\CategoryRepository;
+use CodePub\Models\Category; // as Category;
+use CodePub\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
+use CodePub\Http\Requests\CategoryRequest;
 
 class CategoriesController extends Controller
 {
 
     private $repository;
-    private $category;
 
     public function __construct(CategoryRepository $repository)
     {
@@ -85,11 +84,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(CategoryRequest $request, $id)
     {
-                
-        $category->fill($request->all());
-        $category->save();
+
+        $this->repository->update($request->all(), $id);
         $url = $request->get('redirect_to', route('categories.index'));
         $request->session()->flash('message', 'Categoria alterada com sucesso.');
         return redirect()->to($url);
@@ -102,9 +100,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        $category->delete();
+        $this->repository->delete($id);
         \Session::flash('message', 'Categoria excluída com sucesso.');
         return redirect()->to(\URL::previous());
     }

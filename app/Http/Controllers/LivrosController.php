@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CodePub\Http\Controllers;
 
-use App\Models\Livros;
-use App\Models\User;
+use CodePub\Models\Livros;
+use CodePub\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\LivroRequest;
+use CodePub\Http\Requests\LivroRequest;
 
 class LivrosController extends Controller
 {
